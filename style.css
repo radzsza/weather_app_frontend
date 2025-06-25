@@ -1,0 +1,68 @@
+body {
+    font-family: Arial;
+    color: white;
+    background: #809fcc;
+}
+.sidenav input {
+    margin: 10px 10px 10px 0px;
+    border: none;
+    font-size: 17px;
+}
+
+.main table {
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.sidenav button {
+    margin-top: 10px;
+    background-color: #89a1c7;
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    border: none;
+}
+
+.sidenav button:hover {
+    background-color: #bdcbe0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2c4e83;
+    overflow: hidden;
+    padding-top: 50px;
+    padding-left: 25px;
+    
+    padding: 30px 10px 10px 30px;
+    font-size: 20px;
+}
+#forecast-container, #summary-container {
+    margin-top: 20px;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 30%;
+    width: 65%;
+    padding: 40px 20px 50px 30px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
