@@ -26,16 +26,25 @@
   </div>
   
   <div class="main">
-  <div id="forecast-container">
-    <h2 id="forecast-header" style="text-align: center;"> Wprowadź lokalizację aby zobaczyć prognozę </h2>
-    <table id="forecast-table">
-        <tbody id="forecast-body"></tbody>
-    </table>
-</div>
-  <div id="summary-container">
+    <div id="forecast-container">
+      <h2 id="forecast-header" style="text-align: center;"> Wprowadź lokalizację aby zobaczyć prognozę </h2>
+      <table id="forecast-table">
+          <tbody id="forecast-body"></tbody>
+      </table>
+    </div>
     
+    <div id="summary-container">
+      
+    </div>
   </div>
-  </div>
+  <!--Nie byłam pewna o co chodzi ze stopką, więc jest to po prostu lista wyświetlana pod tabelą-->
+  <div class="darkmode-toggle">
+    <label class="switch">
+        <input type="checkbox" id="darkmode-toggle">
+        <span class="slider round"></span>
+    </label>
+    <span style="margin-left:10px;">Dark Mode</span>
+</div>
 
   <script src="script.js"></script>
 </body>

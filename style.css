@@ -3,6 +3,40 @@ body {
     color: white;
     background: #809fcc;
 }
+
+body.dark-mode {
+    background: #1e1e1e;
+    color: #d8d8d8;
+}
+
+body.dark-mode .sidenav {
+    background-color: #111;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #d8d8d8;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
+
+body.dark-mode table, 
+body.dark-mode th, 
+body.dark-mode td {
+    border-color: #555;
+}
+
+body.dark-mode .main {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .sidenav input {
+    background-color: #888888;
+    color: white;
+}
+
 .sidenav input {
     margin: 10px 10px 10px 0px;
     border: none;
@@ -19,7 +53,75 @@ td, th {
     padding: 8px;
 }
 
-.sidenav button {
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #333638;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #333638;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.darkmode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+button {
     margin-top: 10px;
     background-color: #89a1c7;
     font-family: Arial;
@@ -29,13 +131,14 @@ td, th {
     border: none;
 }
 
-.sidenav button:hover {
+button:hover {
     background-color: #bdcbe0;
 }
 
 .sidenav {
+    position: relative;
     height: 100%;
-    width: 25%;
+    width: 23%;
     position: fixed;
     top: 0;
     left: 0;
@@ -54,15 +157,7 @@ td, th {
 .main {
     position: fixed;
     top: 0;
-    left: 30%;
+    left: 28%;
     width: 65%;
     padding: 40px 20px 50px 30px;
-}
-
-.card {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
 }
