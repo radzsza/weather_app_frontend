@@ -2,7 +2,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const lat = parseFloat(document.getElementById("lat-input").value);
     const lon = parseFloat(document.getElementById("lon-input").value);
-
+    
     fetchForecast(lat, lon);
     fetchSummary(lat, lon);
     });
@@ -10,7 +10,11 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     function fetchForecast(lat, lon) {
     fetch(`http://localhost:8000/forecast/daily?lat=${lat}&lon=${lon}`)
         .then((res) => {
-            if(!res.ok) throw new Error("Podaj poprawne współrzędne");
+            if (!res.ok) {
+                return res.json().then(err => {
+                    throw new Error(err.detail);
+                });
+            }
             return res.json();
         })
         .then((data) => showForecast(data))
@@ -20,7 +24,11 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     function fetchSummary(lat, lon) {
     fetch(`http://localhost:8000/forecast/summary?lat=${lat}&lon=${lon}`)
         .then((res) => {
-            if(!res.ok) throw new Error("Podaj poprawne współrzędne");
+            if (!res.ok) {
+                return res.json().then(err => {
+                    throw new Error(err.detail);
+                });
+            }
             return res.json();
         })
         .then((data) => showSummary(data))
