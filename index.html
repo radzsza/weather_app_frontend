@@ -1,15 +1,12 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/69248163c1.js" crossorigin="anonymous"></script>
+</head>
+
 <body>
-  <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/69248163c1.js" crossorigin="anonymous"></script>
-  <style>
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-  </style>
-  </head>
+  <!--Panel boczny-->
   <div class="sidenav">
   <h1 style="font-size: 37px;">Prognoza pogody</h1>
   <form id="location-form">
@@ -25,6 +22,7 @@
   </form>
   </div>
   
+  <!--Główna sekcja-->
   <div class="main">
     <div id="forecast-container">
       <h2 id="forecast-header" style="text-align: center;"> Wprowadź lokalizację aby zobaczyć prognozę </h2>
@@ -33,18 +31,22 @@
       </table>
     </div>
     
+    <!--Nie byłam pewna o co chodzi ze stopką, więc jest to po prostu lista wyświetlana pod tabelą-->
     <div id="summary-container">
       
     </div>
   </div>
-  <!--Nie byłam pewna o co chodzi ze stopką, więc jest to po prostu lista wyświetlana pod tabelą-->
+
+  <!--Przełącznik dark mode-->
   <div class="darkmode-toggle">
     <label class="switch">
         <input type="checkbox" id="darkmode-toggle">
         <span class="slider round"></span>
     </label>
     <span style="margin-left:10px;">Dark Mode</span>
-</div>
+  </div>
 
+  <!--js-->
   <script src="script.js"></script>
 </body>
+</html>

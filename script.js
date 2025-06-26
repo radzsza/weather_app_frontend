@@ -1,3 +1,4 @@
+// obsługa formularza (lat, lon)
 document.getElementById("location-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const lat = parseFloat(document.getElementById("lat-input").value);
@@ -7,6 +8,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     fetchSummary(lat, lon);
     });
 
+    // pobierz prognozę
     function fetchForecast(lat, lon) {
     fetch(`https://weather-app-backend-5s7v.onrender.com/forecast/daily?lat=${lat}&lon=${lon}`)
         .then((res) => {
@@ -21,6 +23,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         .catch((err) => alert(err.message));
     }
 
+    // pobierz podsumowanie
     function fetchSummary(lat, lon) {
     fetch(`https://weather-app-backend-5s7v.onrender.com/forecast/summary?lat=${lat}&lon=${lon}`)
         .then((res) => {
@@ -35,6 +38,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         .catch((err) => alert(err.message));
     }
 
+    // pokaż prognozę w tabeli
     function showForecast(data) {
         const header = document.getElementById("forecast-header")
         header.style.textAlign = "left";
@@ -43,7 +47,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
 
         body.innerHTML = "";
 
-        //daty
+        // wiersz 1 - daty format dd/mm/yyyy
         const dateRow = document.createElement("tr");
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         data.daily.time.forEach(date => {
@@ -51,7 +55,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         });
         body.appendChild(dateRow);
 
-        //ikonki pogody + wc
+        //wiersz 2 - ikonka pogody na podstawie weather code
         const weatherRow = document.createElement("tr");
         data.daily.weather_code.forEach(code => {
             let weatherCell = document.createElement("td");
@@ -61,8 +65,8 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         })
         body.appendChild(weatherRow)
 
-        //temperatury min/max
-        //generowana energia
+        // wiersz 3 - temperatury min/max
+        // wiersz 4 - generowana energia
         const tempRow = document.createElement("tr");
         const enRow = document.createElement("tr")
         
@@ -77,23 +81,23 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         }
         body.appendChild(tempRow);
         body.appendChild(enRow);
-
-        
     }
 
+    // zwraca kod ikony (fontawesome) na podstawie weather code
     function getWeatherIcon(code) {
         if(code == 0) return "fa-solid fa-sun";
-        if(code == 1 || code == 2) return "fa-solid fa-cloud-sun";
-        if(code == 3) return "fa-solid fa-cloud";
+        if(code === 1 || code === 2) return "fa-solid fa-cloud-sun";
+        if(code === 3) return "fa-solid fa-cloud";
         if(code >= 45 && code <= 48) return "fa-solid fa-smog";
         if(code >= 51 && code <= 57) return "fa-solid fa-cloud-sun-rain";
         if(code >= 61 && code <= 67) return "fa-solid fa-cloud-rain";
-        if((code >= 71 && code <= 77) || code == 85 || code == 86) return "fa-solid fa-snowflake";
+        if((code >= 71 && code <= 77) || code === 85 || code === 86) return "fa-solid fa-snowflake";
         if(code >= 80 && code <= 82) return "fa-solid fa-cloud-showers-heavy";
         if(code >= 95 && code <= 98) return "fa-solid fa-cloud-bolt";
         return "fa-solid fa-question";
     }
 
+    // wypisz podsumowanie
     function showSummary(data) {
     const container = document.getElementById("summary-container");
     container.innerHTML = `
@@ -107,6 +111,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     `;
     }
 
+// dark mode
 document.getElementById("darkmode-toggle").addEventListener("change", function() {
     document.body.classList.toggle("dark-mode", this.checked);
 });
