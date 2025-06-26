@@ -1,3 +1,4 @@
+/* body */
 body {
     font-family: Arial;
     color: white;
@@ -9,27 +10,25 @@ body.dark-mode {
     color: #d8d8d8;
 }
 
+/* pasek boczny (sidenav)*/
+.sidenav {
+    position: relative;
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2c4e83;
+    overflow: hidden;
+    padding-top: 50px;
+    padding-left: 25px;
+    
+    padding: 30px 10px 10px 30px;
+    font-size: 20px;
+}
+
 body.dark-mode .sidenav {
     background-color: #111;
-}
-
-body.dark-mode button {
-    background-color: #333;
-    color: #d8d8d8;
-}
-
-body.dark-mode button:hover {
-    background-color: #555;
-}
-
-body.dark-mode table, 
-body.dark-mode th, 
-body.dark-mode td {
-    border-color: #555;
-}
-
-body.dark-mode .main {
-    background-color: #1e1e1e;
 }
 
 body.dark-mode .sidenav input {
@@ -43,6 +42,30 @@ body.dark-mode .sidenav input {
     font-size: 17px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* main */
+body.dark-mode .main {
+    background-color: #1e1e1e;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 28%;
+    width: 65%;
+    padding: 40px 20px 50px 30px;
+}
+
+#forecast-container, #summary-container {
+    margin-top: 20px;
+}
+
+/* tabela */
 .main table {
     width: 100%;
 }
@@ -53,6 +76,37 @@ td, th {
     padding: 8px;
 }
 
+body.dark-mode table, 
+body.dark-mode th, 
+body.dark-mode td {
+    border-color: #555;
+}
+
+/* button */
+body.dark-mode button {
+    background-color: #333;
+    color: #d8d8d8;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #89a1c7;
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: #bdcbe0;
+}
+
+/* darkmode toggle switch*/
 .switch {
     position: relative;
     display: inline-block;
@@ -119,45 +173,4 @@ input:checked + .slider:before {
     left: 20px;
     display: flex;
     align-items: center;
-}
-
-button {
-    margin-top: 10px;
-    background-color: #89a1c7;
-    font-family: Arial;
-    font-size: 20px;
-    color: white;
-    padding: 10px 10px 10px 10px;
-    border: none;
-}
-
-button:hover {
-    background-color: #bdcbe0;
-}
-
-.sidenav {
-    position: relative;
-    height: 100%;
-    width: 23%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #2c4e83;
-    overflow: hidden;
-    padding-top: 50px;
-    padding-left: 25px;
-    
-    padding: 30px 10px 10px 30px;
-    font-size: 20px;
-}
-#forecast-container, #summary-container {
-    margin-top: 20px;
-}
-
-.main {
-    position: fixed;
-    top: 0;
-    left: 28%;
-    width: 65%;
-    padding: 40px 20px 50px 30px;
 }
