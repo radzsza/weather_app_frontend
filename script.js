@@ -45,8 +45,9 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
 
         //daty
         const dateRow = document.createElement("tr");
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         data.daily.time.forEach(date => {
-            dateRow.innerHTML += `<td>${date}</td>`;
+            dateRow.innerHTML += `<td>${new Date(date).toLocaleDateString('pl-PL', options)}</td>`;
         });
         body.appendChild(dateRow);
 
@@ -87,7 +88,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
         if(code >= 45 && code <= 48) return "fa-solid fa-smog";
         if(code >= 51 && code <= 57) return "fa-solid fa-cloud-sun-rain";
         if(code >= 61 && code <= 67) return "fa-solid fa-cloud-rain";
-        if((code >= 71 && code <= 77) || code == 85 || code == 86) return "fa-solid fa-cloud-rain";
+        if((code >= 71 && code <= 77) || code == 85 || code == 86) return "fa-solid fa-snowflake";
         if(code >= 80 && code <= 82) return "fa-solid fa-cloud-showers-heavy";
         if(code >= 95 && code <= 98) return "fa-solid fa-cloud-bolt";
         return "fa-solid fa-question";
