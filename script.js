@@ -8,7 +8,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     });
 
     function fetchForecast(lat, lon) {
-    fetch(`http://localhost:8000/forecast/daily?lat=${lat}&lon=${lon}`)
+    fetch(`https://weather-app-backend-5s7v.onrender.com/forecast/daily?lat=${lat}&lon=${lon}`)
         .then((res) => {
             if (!res.ok) {
                 return res.json().then(err => {
@@ -22,7 +22,7 @@ document.getElementById("location-form").addEventListener("submit", (e) => {
     }
 
     function fetchSummary(lat, lon) {
-    fetch(`http://localhost:8000/forecast/summary?lat=${lat}&lon=${lon}`)
+    fetch(`https://weather-app-backend-5s7v.onrender.com/forecast/summary?lat=${lat}&lon=${lon}`)
         .then((res) => {
             if (!res.ok) {
                 return res.json().then(err => {
